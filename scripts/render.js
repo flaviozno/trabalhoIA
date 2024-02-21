@@ -1,6 +1,76 @@
 const width = 1000;
 const height = 800;
 
+let treeData = {
+    value: 'Brazil',
+    children: [
+        {
+            value: 'Rio de Janeiro',
+            children: [
+                { value: 'Rio de Janeiro City', children: [] },
+                { value: 'Niterói', children: [] },
+                { value: 'Nova Iguaçu', children: [] },
+                {
+                    value: 'Campos dos Goytacazes',
+                    children: [
+                        { value: 'Campos City', children: [] },
+                        { value: 'São João da Barra', children: [] },
+                        { value: 'Itaperuna', children: [] },
+                    ],
+                },
+            ],
+        },
+        {
+            value: 'São Paulo',
+            children: [
+                { value: 'São Paulo City', children: [] },
+                { value: 'Campinas', children: [] },
+                { value: 'Guarulhos', children: [] },
+                {
+                    value: 'Santos',
+                    children: [
+                        { value: 'Santos City', children: [] },
+                        { value: 'São Vicente', children: [] },
+                        { value: 'Praia Grande', children: [] },
+                    ],
+                },
+            ],
+        },
+        {
+            value: 'Minas Gerais',
+            children: [
+                { value: 'Belo Horizonte', children: [] },
+                { value: 'Uberlândia', children: [] },
+                { value: 'Contagem', children: [] },
+                {
+                    value: 'Juiz de Fora',
+                    children: [
+                        { value: 'Juiz de Fora City', children: [] },
+                        { value: 'Muriaé', children: [] },
+                        { value: 'Cataguases', children: [] },
+                    ],
+                },
+            ],
+        },
+        {
+            value: 'Bahia',
+            children: [
+                { value: 'Salvador', children: [] },
+                { value: 'Feira de Santana', children: [] },
+                { value: 'Vitória da Conquista', children: [] },
+            ],
+        },
+        {
+            value: 'Ceará',
+            children: [
+                { value: 'Fortaleza', children: [] },
+                { value: 'Caucaia', children: [] },
+                { value: 'Juazeiro do Norte', children: [] },
+            ],
+        },
+    ]
+};
+
 const renderTree = () => {
     const svg = d3.select('svg')
         .attr('width', width)
@@ -45,21 +115,4 @@ const renderTree = () => {
 
 document.addEventListener('DOMContentLoaded', () => {
     renderTree()
-    
-    const selectElement = document.getElementById('citySelect');
-    const selectElementRoot = document.getElementById('citySelectRoot');
-
-    selectOptions.forEach(city => {
-        const option = document.createElement('option');
-        option.textContent = city.label;
-        option.value = city.value;
-        option.classList.add('bg-white', 'hover:bg-gray-100');
-        selectElement.appendChild(option);
-        
-        const option2 = document.createElement('option');
-        option2.textContent = city.label;
-        option2.value = city.value;
-        option2.classList.add('bg-white', 'hover:bg-gray-100');
-        selectElementRoot.appendChild(option2);
-    });
 });
